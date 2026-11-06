@@ -18,7 +18,6 @@ public class LearnerIntegrationTests
         var entry = new Entry("Sam Test", "Orion", "Tourismus", 30, false, false, false, true);
         var response = await client.PostAsJsonAsync("/api/cases", entry);
         var records = await client.GetFromJsonAsync<List<Case>>("/api/cases");
-        // TODO: HTTP-Status, gespeicherte Werte und Entscheidung prüfen.
         
         //HttpClient 201
         Assert.AreEqual(HttpStatusCode.Created, response.StatusCode);
